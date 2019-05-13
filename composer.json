@@ -1,0 +1,33 @@
+{
+    "name": "rdj/rajaongkir",
+    "description": "This Package for Laravel Client Consume API (Web Service)",
+    "type": "package",
+    "license": "MIT License",
+    "authors": [
+        {
+            "name": "Rangga Darmajati",
+            "email": "rangga.android69@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rdj\\Client\\": "src/"
+        }
+    },
+    "extra":{
+        "laravel": {
+            "providers":[
+                "Rdj\\Client\\ClientServiceProvider"
+            ],
+            "aliases":{
+                "Rajaongkir": "Rdj\\Client\\Facades\\Client"
+            }
+        }
+    }
+}
