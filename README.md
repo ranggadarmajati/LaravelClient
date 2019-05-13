@@ -120,11 +120,12 @@ Class YourController extends Controller
 
 ....
 
-   public function getData()
+   public function getData(Request $request)
    {
+      $search = $request->search;
       $getdata = Client::setEndpoint('your_endpoint')
                     ->setHeaders(['authorization' => 'your_token'])
-                    ->setQuery(['search' => 'jhondee'])
+                    ->setQuery(['search' => $search])
                     ->get();
         return response()->json( $getdata );
    }
