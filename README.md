@@ -1,7 +1,7 @@
 # Laravel Client
 
 This Package for Laravel Client Consume API (Web Service)
-![](json-rest_schema.png)
+![](../json-rest_schema.png)
 
 ## Requirement
 In Your Project you must install ``guzzlehttp/guzzle`` version 6.2 or latest version.
