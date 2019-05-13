@@ -1,5 +1,5 @@
 {
-    "name": "rdj/rajaongkir",
+    "name": "rdj/client",
     "description": "This Package for Laravel Client Consume API (Web Service)",
     "type": "package",
     "license": "MIT License",
