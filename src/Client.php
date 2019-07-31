@@ -92,7 +92,6 @@ class Client
     {
         $headersDefault = [
             'Accept'   =>'application/json',
-            'Content-Type'   =>'application/x-www-form-urlencoded',
         ];
         if (session('authenticate') ) { 
             $headersDefault['Authorization']='Bearer '.session('authenticate.token');
