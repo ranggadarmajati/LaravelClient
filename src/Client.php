@@ -86,12 +86,18 @@ class Client
      *
      * @var array
      * @author Rangga Darmajati <rangga.android69@gmail.com>
+     * @modify Sulaeman Rasyid add default headers <sulaemanr46@gmail.com>
      */
     public function headers()
     {
-        return $this->headers = [
-            
+        $headersDefault = [
+            'Accept'   =>'application/json',
+            'Content-Type'   =>'application/x-www-form-urlencoded',
         ];
+        if (session('authenticate') ) { 
+            $headersDefault['Authorization']='Bearer '.session('authenticate.token');
+        }
+        return $this->headers = $headersDefault;
     }
 
     /**
