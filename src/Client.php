@@ -39,7 +39,7 @@ class Client
      * @author Rangga Darmajati <rangga.android69@gmail.com>
      */
     
-    protected $base = 'int/';
+    protected $base='';
 
     /**
      * The headers that will be sent when call the API.
@@ -107,6 +107,7 @@ class Client
      */
     public function uri()
     {
+        $this->base = env('BASE');
         return $this->uri . $this->base .$this->endpoint;
     }
 
