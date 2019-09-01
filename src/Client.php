@@ -94,7 +94,7 @@ class Client
             'Accept'   =>'application/json',
         ];
         if (session('authenticate') ) { 
-            $headersDefault['Authorization']='Bearer '.session('authenticate.token');
+            $headersDefault['Authorization']= env('Bearer').session('authenticate.token');
         }
         return $this->headers = $headersDefault;
     }
