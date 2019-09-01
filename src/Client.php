@@ -39,7 +39,7 @@ class Client
      * @author Rangga Darmajati <rangga.android69@gmail.com>
      */
     
-    protected $base;
+    protected $base = 'int/';
 
     /**
      * The headers that will be sent when call the API.
@@ -94,7 +94,7 @@ class Client
             'Accept'   =>'application/json',
         ];
         if (session('authenticate') ) { 
-            $headersDefault['Authorization']= env('Bearer').session('authenticate.token');
+            $headersDefault['Authorization']=session('authenticate.token');
         }
         return $this->headers = $headersDefault;
     }
@@ -107,8 +107,7 @@ class Client
      */
     public function uri()
     {
-        $this->base = env('BASE');
-        return $this->uri . $this->base . $this->endpoint;
+        return $this->uri . $this->base .$this->endpoint;
     }
 
     /**
@@ -208,7 +207,7 @@ class Client
      * @author Rangga Darmajati <rangga.android69@gmail.com>
      */
     public function get()
-    {
+    { 
         try {
             $request  = $this->http->request('GET', $this->uri(), [
                 'headers'  => $this->headers,
@@ -232,7 +231,7 @@ class Client
      * @author Rangga Darmajati <rangga.android69@gmail.com>
      */
     public function post($type = 'json')
-    {
+    { 
         try {
             $request  = $this->http->request('POST', $this->uri(), [
                 'headers'  => $this->headers,
