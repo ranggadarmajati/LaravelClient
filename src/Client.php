@@ -215,9 +215,13 @@ class Client
                 'query'    => $this->query
             ]);
             $response = json_decode($request->getBody(), true);
+            $statusCode = $request->getStatusCode();
+            $response['code'] = $statusCode;
         } catch (ClientException $e) {
             $body = $e->getResponse()->getBody();
             $response = json_decode($body->getContents(), true);
+            $statusCode = $e->getResponse()->getStatusCode();
+            $response['code'] = $statusCode;
         } catch (ServerException $e) {
             abort(500);
         }
@@ -240,9 +244,13 @@ class Client
                 $type      => $this->body
             ]);
             $response = json_decode($request->getBody(), true);
+            $statusCode = $request->getStatusCode();
+            $response['code'] = $statusCode;
         } catch (ClientException $e) {
             $body = $e->getResponse()->getBody();
             $response = json_decode($body->getContents(), true);
+            $statusCode = $e->getResponse()->getStatusCode();
+            $response['code'] = $statusCode;
         } catch (ServerException $e) {
             \Log::info($e->getRequest()->getBody());
             abort(500);
@@ -269,9 +277,13 @@ class Client
                 $type      => $body
             ]);
             $response = json_decode($request->getBody(), true);
+            $statusCode = $request->getStatusCode();
+            $response['code'] = $statusCode;
         } catch (ClientException $e) {
             $body = $e->getResponse()->getBody();
             $response = json_decode($body->getContents(), true);
+            $statusCode = $e->getResponse()->getStatusCode();
+            $response['code'] = $statusCode;
         } catch (ServerException $e) {
             abort(500);
         }
@@ -294,9 +306,13 @@ class Client
                 'json'     => $this->body
             ]);
             $response = json_decode($request->getBody(), true);
+            $statusCode = $request->getStatusCode();
+            $response['code'] = $statusCode;
         } catch (ClientException $e) {
             $body = $e->getResponse()->getBody();
             $response = json_decode($body->getContents(), true);
+            $statusCode = $e->getResponse()->getStatusCode();
+            $response['code'] = $statusCode;
         } catch (ServerException $e) {
             abort(500);
         }
