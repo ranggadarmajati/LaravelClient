@@ -13,7 +13,7 @@ In Your Project you must install ``guzzlehttp/guzzle`` version 6.2 or latest ver
 
 Install via "composer"
 ```code
-$ composer require rdj/client "dev-master"
+$ composer require rdj/client:dev-dev-sule
 ```
 #### or
 Add the manual in composer.json
