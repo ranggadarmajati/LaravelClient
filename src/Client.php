@@ -203,7 +203,7 @@ class Client
 
     /**
      * Get request from middleware.
-     *
+     * add respon code request
      * @return \Illuminate\Http\Response
      * @author Rangga Darmajati <rangga.android69@gmail.com>
      */
