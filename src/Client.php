@@ -319,4 +319,33 @@ class Client
 
         return $response;
     }
+
+    /**
+     * Patch request to middleware.
+     *
+     * @return \Illuminate\Http\Response
+     * @author Sulaeman rasyid sulaemanr46@gmail.com
+     */
+    public function patch($type = 'json')
+    { 
+        try {
+            $request  = $this->http->request('PATCH', $this->uri(), [
+                'headers'  => $this->headers,
+                'query'    => $this->query,
+                $type      => $this->body
+            ]);
+            $response = json_decode($request->getBody(), true);
+            $statusCode = $request->getStatusCode();
+            $response['code'] = $statusCode;
+        } catch (ClientException $e) {
+            $body = $e->getResponse()->getBody();
+            $response = json_decode($body->getContents(), true);
+            $statusCode = $e->getResponse()->getStatusCode();
+            $response['code'] = $statusCode;
+        } catch (ServerException $e) {
+            \Log::info($e->getRequest()->getBody());
+            abort(500);
+        }
+        return $response;
+    }
 }
